@@ -1,0 +1,20 @@
+#!/bin/bash
+
+aptitude install -y curl rsync git-core emacs23-nox;
+cd /tmp
+curl -O http://apt.puppetlabs.com/puppetlabs-release-wheezy.deb
+dpkg -i puppetlabs-release-wheezy.deb
+aptitude update;
+aptitude upgrade;
+aptitude install -y puppet=3.4.3-1puppetlabs1 puppet-common=3.4.3-1puppetlabs1 hiera sudo
+
+( cat <<'EOP'
+---
+:backends:
+  - yaml
+:hierarchy:
+  - "%{::environment}/%{::fqdn}"
+  - "%{::environment}"
+  - common
+EOP
+) > /etc/puppet/hiera.yaml

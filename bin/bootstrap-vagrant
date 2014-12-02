@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ ! -e /etc/firstrun ]; then
+  cd /tmp
+  curl -O http://apt.puppetlabs.com/puppetlabs-release-wheezy.deb
+  dpkg -i puppetlabs-release-wheezy.deb
+  apt-get update
+  apt-get install -y hiera puppet=3.4.3-1puppetlabs1 puppet-common=3.4.3-1puppetlabs1 ruby
+  ( cat <<'EOP'
+---
+:backends:
+  - yaml
+:hierarchy:
+  - "%{::fqdn}"
+  - "%{environment}"
+  - common
+:yaml:
+  :datadir: /vagrant/configuration/
+EOP
+  ) > /etc/puppet/hiera.yaml
+
+  touch /etc/firstrun
+
+  echo "################################################"
+  echo "# Done bootstrapping. Thanks for your patience #"
+  echo "# If you feel the need to re-run this process  #"
+  echo "# for whatsoever reason, just delete the file  #"
+  echo "# '/etc/firstrun'.                             #"
+  echo "#                          Now running Puppet. #"
+  echo "################################################"
+fi
+
+# We're always happy
+exit 0;
+
