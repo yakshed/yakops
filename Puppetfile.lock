@@ -1,78 +1,43 @@
 FORGE
-  remote: http://forge.puppetlabs.com
+  remote: https://forgeapi.puppetlabs.com
   specs:
-    alup/rbenv (1.2.0)
-    attachmentgenie/ufw (1.4.7)
-      puppetlabs/stdlib (>= 2.2.1)
-    darin/zypprepo (1.0.1)
-    gini/archive (0.2.0)
-    huit/gitolite (0.2.0)
-      puppetlabs/vcsrepo (>= 0.0.4)
-    jfryman/nginx (0.0.7)
-      puppetlabs/apt (>= 1.0.0)
-      puppetlabs/concat (>= 1.0.0)
-      puppetlabs/stdlib (>= 0.1.6)
-    leoc/piwik (0.0.3)
-    mayflower/prosody (0.2.1)
-      puppetlabs/stdlib (>= 3.2.0)
-    nodes/php (0.8.0)
-      puppetlabs/apt (> 0.0.0)
-      puppetlabs/stdlib (> 0.0.0)
-    puppetlabs/apt (1.4.1)
-      puppetlabs/stdlib (>= 2.2.1)
-    puppetlabs/concat (1.1.0-rc1)
-      puppetlabs/stdlib (>= 3.0.0)
-    puppetlabs/java (1.0.1)
-      puppetlabs/stdlib (>= 0.1.6)
-    puppetlabs/mysql (2.2.1)
-      puppetlabs/stdlib (>= 3.2.0)
-    puppetlabs/nodejs (0.4.0)
-      puppetlabs/apt (>= 0.0.3)
-      puppetlabs/stdlib (>= 2.0.0)
-    puppetlabs/ntp (3.0.2)
-      puppetlabs/stdlib (>= 0.1.6)
-    puppetlabs/stdlib (4.1.0)
-    puppetlabs/vcsrepo (0.2.0)
-    rtyler/jenkins (1.0.0)
-      darin/zypprepo (>= 1.0.1)
-      puppetlabs/apt (>= 0.0.3)
-      puppetlabs/java (>= 1.0.1)
-      puppetlabs/stdlib (>= 2.0.0)
-    saz/locales (2.0.1)
-    ssm/munin (0.0.5)
-      puppetlabs/stdlib (>= 2.3.0)
+    jfryman-nginx (0.0.7)
+      puppetlabs-apt (>= 1.0.0)
+      puppetlabs-concat (>= 1.0.0)
+      puppetlabs-stdlib (>= 0.1.6)
+    leoc-piwik (1.0.0)
+    nodes-php (0.9.0)
+      puppetlabs-apt (> 0.0.0)
+      puppetlabs-inifile (> 0.0.0)
+      puppetlabs-stdlib (> 0.0.0)
+    puppetlabs-apt (1.7.0)
+      puppetlabs-stdlib (>= 2.2.1)
+    puppetlabs-concat (1.1.2)
+      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs-inifile (1.2.0)
+    puppetlabs-stdlib (4.4.0)
 
 GIT
-  remote: https://github.com/mxhero/puppet-dovecot.git
+  remote: git://github.com/yakshed/puppet-yakshed-webserver.git
   ref: master
-  sha: 66c793a60928d6db0bf02337a3f210fe85d24ac7
+  sha: 8b5124df0d3fc18f8339f05296d9f2276a1cd321
   specs:
-    jproyo/dovecot (0.1.0)
+    yakshed-webserver (0.1.0)
+      jfryman-nginx (= 0.0.7)
+      leoc-piwik (= 1.0.0)
+      nodes-php (= 0.9.0)
+      puppetlabs-stdlib (>= 4.4.0)
 
 GIT
-  remote: https://github.com/thias/puppet-postfix.git
+  remote: git://github.com/yakshed/puppet-yakshed.git
   ref: master
-  sha: ec39d6b3eeaff167b02dab2fb34fafd2c9f4f24b
+  sha: 8619e1608719191c446edd0f999a971e8cfe6ffd
   specs:
-    thias/postfix (0.3.0)
+    yakshed-yakshed (0.1.0)
+      puppetlabs-apt (>= 1.7.0)
+      puppetlabs-stdlib (>= 4.4.0)
 
 DEPENDENCIES
-  alup/rbenv (= 1.2.0)
-  attachmentgenie/ufw (>= 0)
-  gini/archive (= 0.2.0)
-  huit/gitolite (= 0.2.0)
-  jfryman/nginx (= 0.0.7)
-  jproyo/dovecot (>= 0)
-  leoc/piwik (>= 0)
-  mayflower/prosody (= 0.2.1)
-  nodes/php (>= 0)
-  puppetlabs/apt (>= 0)
-  puppetlabs/mysql (= 2.2.1)
-  puppetlabs/nodejs (= 0.4.0)
-  puppetlabs/ntp (>= 0)
-  puppetlabs/stdlib (>= 0)
-  rtyler/jenkins (= 1.0.0)
-  saz/locales (= 2.0.1)
-  ssm/munin (= 0.0.5)
-  thias/postfix (>= 0)
+  yakshed-webserver (>= 0)
+  yakshed-yakshed (>= 0)
 

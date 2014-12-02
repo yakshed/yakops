@@ -3,3 +3,4 @@ vendor/
 .vagrant/
 .librarian/
 ssl/
+modules/
